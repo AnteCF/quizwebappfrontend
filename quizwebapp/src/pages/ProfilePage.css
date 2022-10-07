@@ -1,0 +1,9 @@
+.content{
+    position: absolute;
+    left: 10%;
+    top: 10%;
+}
+
+.userName{
+    float: center;
+}
