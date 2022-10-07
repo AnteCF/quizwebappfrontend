@@ -1,3 +1,5 @@
-.text{
-    color: red;
+.content{
+    position: absolute;
+    left: 10%;
+    top: 10%;
 }

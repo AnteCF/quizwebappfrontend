@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react"
 import "./ProfilePage.css";
-import UserService from "../apis/UserAPI";
+import UserAPI from "../apis/UserAPI";
 
 function ProfilePage() {
 
     const [points, setPoints] = useState([]);
 
     useEffect(() => {
-        UserService.getPoints().then(response => {
+        UserAPI.getPoints().then(response => {
             setPoints(response.data)
         })
         .catch(err => console.error(err));
@@ -15,7 +15,7 @@ function ProfilePage() {
 
     return (
         <div className="content">
-            <h1 className="userName">{UserService.getCurrentUser()}</h1>
+            <h1 className="userName">{UserAPI.getCurrentUser()}</h1>
             <p>Your current score is {points}</p>
         </div>
     )
