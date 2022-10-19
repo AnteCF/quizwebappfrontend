@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./PlayPage.css";
 import QuizAPI from "../apis/QuizAPI";
-import { Card, List } from '@mui/material';
+import { Button, Card, List } from '@mui/material';
+import {Link} from 'react-router-dom';
 
 function PlayPage() {
 
@@ -19,14 +20,16 @@ function PlayPage() {
     }, []);
 
     return (
-        <div className="content">
+        <div className="container">
             <List>
                 {quizList.map((quiz, index) => {
                     return <li key={index}> <Card variant="outlined">
                         <h1>{quiz.name}</h1>
                         <p>{quiz.description}</p>
                         <p>rating: {quiz.rating} / 5</p>
+                        <Button component={Link} to={"quiz/?title=" + quiz.name}  variant="contained">Play</Button>
                     </Card> </li>
+
                 })}
             </List>
         </div>

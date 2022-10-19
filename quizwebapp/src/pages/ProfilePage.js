@@ -14,7 +14,7 @@ function ProfilePage() {
     }, []);
 
     return (
-        <div className="content">
+        <div className="container">
             <h1 className="userName">{UserAPI.getCurrentUser()}</h1>
             <p>Your current score is {points}</p>
         </div>

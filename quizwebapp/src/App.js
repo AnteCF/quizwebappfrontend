@@ -7,6 +7,7 @@ import ProfilePage from './pages/ProfilePage';
 import CreateQuizPage from './pages/CreateQuizPage';
 import FindFriendsPage from './pages/FindFriendsPage';
 import MessagesPage from './pages/MessagesPage';
+import QuizPage from './pages/QuizPage';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/create" element={<CreateQuizPage />} />
           <Route path="/friends" element={<FindFriendsPage />} />
           <Route path="/messages" element={<MessagesPage />} />
+          <Route path="play/quiz/*" element={<QuizPage />} />
         </Routes>
        </Router>
     </div>
