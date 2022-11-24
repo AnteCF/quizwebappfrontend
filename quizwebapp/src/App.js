@@ -8,6 +8,7 @@ import CreateQuizPage from './pages/CreateQuizPage';
 import FindFriendsPage from './pages/FindFriendsPage';
 import MessagesPage from './pages/MessagesPage';
 import QuizPage from './pages/QuizPage';
+import LoginPage from './pages/LoginPage';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/friends" element={<FindFriendsPage />} />
           <Route path="/messages" element={<MessagesPage />} />
           <Route path="play/quiz/*" element={<QuizPage />} />
+          <Route path="/login" element={<LoginPage />} />
         </Routes>
        </Router>
     </div>

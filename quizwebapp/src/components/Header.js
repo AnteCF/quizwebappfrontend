@@ -1,7 +1,7 @@
 import React from "react";
 import "./Header.css";
 import { AppBar, Button, Toolbar, Typography } from '@mui/material';
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, Link } from "react-router-dom";
 
 function Header() {
 
@@ -19,7 +19,7 @@ function Header() {
             >
                 <Toolbar display="flex">
                     <Typography variant="h2" >{title}</Typography>
-                    <Button variant="text" sx={{ color: "white"}}>Login</Button>
+                    <Button variant="text" component={Link} to='/login' sx={{ color: "white"}}>Login</Button>
                 </Toolbar>
             </AppBar>
     )
