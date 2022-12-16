@@ -1,5 +1,4 @@
 import { Button, Grid, Typography, Card, Paper  } from "@mui/material";
-import { Box } from "@mui/system";
 import React, { useLayoutEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import QuizAPI from "../apis/QuizAPI";
@@ -19,7 +18,7 @@ function QuizPage() {
     const renderQuestion = () => {
         if(quiz != null)
             if(quiz.hasOwnProperty('questions'))
-                return(<Typography variant="h2"> {questionNumber + '.'+ quiz.questions[questionNumber]}</Typography>)
+                return(<Typography variant="h2"> {questionNumber + '.'+ quiz.questions[questionNumber-1]}</Typography>)
         else return(<Typography variant="h2">not rendered yet</Typography>);
     }
 
@@ -88,11 +87,11 @@ function QuizPage() {
         refreshQuiz();
     },[]);
 
-    const questionsPaperStyle={height:'60vh', width:500, margin:"50px 50vh", backgroundColor:'lightBlue'}
-    const endOfQuizCardStyle={padding:'30px', width:700, margin:"50px 50vh", backgroundColor:'lightGreen'}
+    const questionsPaperStyle={height:'75vh', width:'100vh', marginTop:'5%', backgroundColor:'lightBlue'}
+    const endOfQuizCardStyle={padding:'30px', width:700, margin:"10px", backgroundColor:'lightGreen'}
 
     return (
-        <Box className="container">
+        <div>
             {console.log(quiz)}
             <Grid align='center'>
                 <Paper elevation={20} style={questionsPaperStyle}>
@@ -102,7 +101,7 @@ function QuizPage() {
                 </Paper>
                 <Card variant="outlined" hidden = {!endOfQuiz} style={endOfQuizCardStyle}>Congratulations, you scored {points} points. You can see your total score at your profile page :)</Card>
             </Grid>
-        </Box>
+        </div>
 
     );
 }

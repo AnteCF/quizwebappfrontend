@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { Button, Grid, Paper, TextField, Typography, Radio, RadioGroup, FormControlLabel, FormControl, FormLabel, Card } from "@mui/material";
+import { Button, Grid, Paper, TextField, Typography, Radio, RadioGroup, FormControlLabel, FormControl, FormLabel } from "@mui/material";
 import QuizAPI from "../apis/QuizAPI";
-import LoginAPI from "../apis/LoginAPI";
 
-function CreateQuizPage(){
+function EditQuizPage(){
 
     const [questions, setQuestions] = useState(["", ""]);
     const [possibleAnswers, setPossibleAnswers] = useState({1 : "", 2: ""});
@@ -107,8 +106,6 @@ function CreateQuizPage(){
         QuizAPI.createQuiz(newQuiz);
     }
 
-    if(LoginAPI.isLoggedIn())
-{
     return(
         <div>
             <Grid align='center'>
@@ -133,23 +130,6 @@ function CreateQuizPage(){
             </Grid>
         </div>
     )
-                    }
-
-                    else
-                    return (
-                        <div className="container">
-                            <Grid
-                  container
-                  alignItems="center"
-                  justifyContent="center"
-                  style={{ minHeight: '100vh' }}
-                >
-                    <Card style={{backgroundColor: 'red', display: "flex", alignItems: 'center', justifyContent: 'center'}}>
-                        <Typography variant="h1">Please log in to create quizzes.</Typography>
-                    </Card>
-                    </Grid>
-                    </div>
-                    )
 }
 
-export default CreateQuizPage;
+export default EditQuizPage;

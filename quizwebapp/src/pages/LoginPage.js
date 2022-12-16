@@ -1,18 +1,35 @@
-import { Button, Grid, Paper, TextField, Typography } from "@mui/material";
+import { Alert, Button, Grid, Modal, Paper, TextField, Typography } from "@mui/material";
 import React, {useState} from "react";
-import UserAPI from "../apis/UserAPI";
+import { useNavigate } from "react-router-dom";
+import LoginAPI from "../apis/LoginAPI";
 
 function LoginPage(){
 
 const [username, setUsername] = useState("");
 const [password, setPassword] = useState("");
+const [openSuccessAlert, setOpenSuccessAlert] = React.useState(false);
 
-const login = () => UserAPI.login(username, password)
+const navigate = useNavigate();
+
+const login = () =>{
+    LoginAPI.login(username, password);
+    setOpenSuccessAlert(LoginAPI.isLoggedIn());
+    navigate('/profile');
+}
     
     const loginFormStyle={height:'70vh', width:500, margin:"140px auto", backgroundColor:'lightBlue'}
+
     return(
         <div>
             <Grid>
+                <Modal 
+                    open={openSuccessAlert}>
+            <Alert severity="success"
+                action={<Button color="inherit" size="small" onClick={() => setOpenSuccessAlert(false)}>
+                Close
+              </Button>}>
+                Successfully logged in.</Alert>
+            </Modal>
                 <Paper elevation={20} style={loginFormStyle}>
                     <Grid align='center'>
                     <h2>Login</h2>
